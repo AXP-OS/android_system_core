@@ -275,9 +275,6 @@ int __android_log_is_loggable(int prio, const char* tag, int default_prio) {
 }
 
 int __android_log_is_debuggable() {
-#ifdef DEBUGGABLE
-  return 1;
-#else
   static uint32_t serial;
   static struct cache_char tag_cache;
   static const char key[] = "ro.debuggable";
@@ -305,7 +302,6 @@ int __android_log_is_debuggable() {
   }
 
   return ret;
-#endif
 }
 
 /*
